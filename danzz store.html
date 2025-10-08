@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DANZZ STORE ⚡</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, #00111a, #002233, #00111a);
+      background-size: 400% 400%;
+      animation: bgMove 12s ease infinite;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    @keyframes bgMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Splash screen */
+    #splash {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 999;
+      color: #00bfff;
+      font-size: 24px;
+      transition: opacity 1s ease;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 32px;
+      font-weight: bold;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+      filter: drop-shadow(0 0 8px #00bfff);
+    }
+
+    /* Tombol Masuk */
+    .masuk-btn {
+      background: linear-gradient(90deg, #00bfff, #00ffff);
+      color: #000;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 20px #00bfff;
+      animation: glow 1.5s infinite alternate;
+      transition: transform 0.3s;
+    }
+
+    .masuk-btn:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 10px #00bfff; }
+      to { box-shadow: 0 0 25px #00ffff; }
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0, 191, 255, 0.4);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .promo {
+      background-color: #00bfff;
+      color: #000;
+      padding: 10px;
+      font-weight: bold;
+      animation: promoBlink 2s infinite alternate;
+    }
+
+    @keyframes promoBlink {
+      from {opacity: 0.8;}
+      to {opacity: 1;}
+    }
+
+    .menu {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 191, 255, 0.5);
+      border-radius: 16px;
+      padding: 20px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(0, 191, 255, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px rgba(0, 191, 255, 0.5);
+    }
+
+    .card img {
+      width: 80px;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 6px #00bfff);
+    }
+
+    .card h2 {
+      margin-bottom: 15px;
+      color: #00bfff;
+    }
+
+    .card button {
+      background: #00bfff;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .card button:hover {
+      background: #0099cc;
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Splash dengan tombol Masuk -->
+  <div id="splash">
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="controller">
+      DANZZ STORE ⚡
+    </div>
+    <button class="masuk-btn" onclick="mulai()">Masuk</button>
+  </div>
+
+  <header>
+    <div class="promo">🔥 Promo Hari Ini: Cashback 20% untuk Top Up ML & FF! 🔥</div>
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="controller">
+      DANZZ STORE ⚡
+    </div>
+  </header>
+
+  <main>
+    <section class="menu">
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712101.png" alt="ml">
+        <h2>Top Up ML</h2>
+        <p>Diamonds Mobile Legends termurah!<br><br>
+        💎 86 = 20K<br>💎 170 = 40K<br>💎 257 = 60K<br>💎 514 = 110K<br>💎 1708 = 330K</p>
+        <br>
+        <input type="text" id="idML" placeholder="Masukkan ID ML" style="padding:8px;width:90%;border-radius:6px;border:none;">
+        <br><br>
+        <select id="metodeML" style="padding:8px;width:90%;border-radius:6px;border:none;">
+          <option>DANA</option>
+        </select>
+        <br><br>
+        <button onclick="beli('Top Up ML')">Beli Sekarang</button>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712101.png" alt="ff">
+        <h2>Top Up FF</h2>
+        <p>Diamond Free Fire harga bersahabat!<br><br>
+        💎 70 = 10K<br>💎 140 = 20K<br>💎 355 = 45K<br>💎 720 = 90K<br>💎 1450 = 180K</p>
+        <br>
+        <input type="text" id="idFF" placeholder="Masukkan ID FF" style="padding:8px;width:90%;border-radius:6px;border:none;">
+        <br><br>
+        <select id="metodeFF" style="padding:8px;width:90%;border-radius:6px;border:none;">
+          <option>DANA</option>
+        </select>
+        <br><br>
+        <button onclick="beli('Top Up FF')">Beli Sekarang</button>
+      </div>
+
+      <div class="card">
+        <h2>Rank Booster VIP</h2>
+        <p>• 10h = 15K<br>• 15h = 20K<br>• 20h = 30K<br>• 35h = 50K<br>• 50h = 80K<br>• Permanent = 100K</p>
+        <br>
+        <select id="metodeRank" style="padding:8px;width:90%;border-radius:6px;border:none;">
+          <option>DANA</option>
+        </select>
+        <br><br>
+        <button onclick="beli('Rank Booster VIP')">Beli Sekarang</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 DANZZ STORE ⚡ | All Rights Reserved
+  </footer>
+
+  <script>
+    function mulai() {
+      const splash = document.getElementById("splash");
+      splash.style.opacity = "0";
+      setTimeout(() => splash.style.display = "none", 1000);
+
+      // Putar suara sambutan
+      const suara = new SpeechSynthesisUtterance("Selamat datang di shop DANZZ STORE");
+      suara.lang = "id-ID";
+      suara.rate = 1;
+      suara.pitch = 1;
+      window.speechSynthesis.speak(suara);
+    }
+
+    function beli(produk) {
+      const nomor = "6287821749936";
+      const pesan = `Halo Admin DANZZ STORE⚡, saya ingin beli ${produk}.`;
+      window.open(`https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`);
+    }
+  </script>
+
+</body>
+</html>
